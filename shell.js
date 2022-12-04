@@ -14,6 +14,7 @@ let backgroundProcesses = Object.create(null);
 // Implemention of commands by making each command a function
 let commandsList = {
 
+    // Prints file contents on STDOUT
     cat: function catCommand(input) {
         filename = input.toString().split(' ').at(1);
         try {
@@ -33,6 +34,7 @@ let commandsList = {
         }
     },
 
+    // Changes the directory
     cd: function cdCommand(input) {
         var newDirectory = input.toString().split(' ').at(1);
         try {
@@ -48,10 +50,12 @@ let commandsList = {
         rl.setPrompt(`\n(${os.userInfo().username}@${os.hostname()}) -[${currentDirectory}] \nN$: `);
     },
 
+    // Clears the shell screen
     clear: function clearCommand() {
         console.clear();
     },
 
+    // Quits the shell
     exit: function exitCommand() {
         if (!isProcessesEmpty() && !forceExit) {
             console.log(`\nThere are background processes`);
@@ -63,6 +67,7 @@ let commandsList = {
         }
     },
 
+    // Brings the background process to foreground
     fg: function fgCommand(input) {
         try {
             var fgPid = input.toString().split(' ').at(1);
@@ -79,6 +84,7 @@ let commandsList = {
         }
     },
 
+    // Lists the contents of directory
     ls: function lsCommand(input) {
         try {
             dirToList = input.toString().split(' ').at(1);
@@ -102,6 +108,7 @@ let commandsList = {
         }
     },
 
+    // Lists the background processes spawned by the shell
     ps: function psCommand() {
         console.log();
         console.log('PID' + '       CMD')
@@ -113,6 +120,7 @@ let commandsList = {
         }
     },
 
+    // Prints the present working directory
     pwd: function pwdCommand() {
         console.log(process.cwd());
     }

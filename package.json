@@ -1,0 +1,17 @@
+{
+  "name": "node-shell",
+  "version": "1.0.0",
+  "description": "A bash like shell made using Node.js",
+  "main": "shell.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node shell.js"
+  },
+  "keywords": [
+    "node.js",
+    "shell",
+    "bash"
+  ],
+  "author": "deepammali",
+  "license": "ISC"
+}

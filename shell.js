@@ -79,10 +79,6 @@ let commandsList = {
         }
     },
 
-    help: function helpCommand() {
-        console.log('\List of commands: \nls \npwd \nps \nclear \ncat \nfg \necho \nexit');
-    },
-
     ls: function lsCommand(input) {
         try {
             dirToList = input.toString().split(' ').at(1);
@@ -182,18 +178,22 @@ function isProcessesEmpty() {
     return true;
 }
 
+// Check if file is binary or executable or return an error
 function isFileExecutable(filename) {
     try {
         fs.accessSync(filename, fs.constants.X_OK);
         return true;
     } catch (err) {
-        console.log('Not an executable')
         return false;
     }
 }
 
 function executeBinaryFile(commandInput, inputString) {
+
+    // path of executable file
     let binPath = path.resolve(commandInput);
+
+    // Store arguments 
     let arguments = [];
     inputString.split(' ').forEach(element => {
         if (element != commandInput) {

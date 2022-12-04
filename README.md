@@ -2,7 +2,7 @@
 
 ## About the node-shell
 
-    This is a bash-like shell created with the Node JS (tested on v18.10.0). Shell starts with deafult working directory set to user's home directory.
+This is a bash-like shell created with the Node JS (tested on v18.10.0). Shell starts with deafult working directory set to user's home directory.
 
 # References
 
